@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://frexofa.op/cliente" 
+           targetNamespace="http://frexofa.op/cliente" elementFormDefault="qualified">
+    
+    <xs:element name="crearClienteRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="clienteRQ" type="tns:clienteRQ"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="crearClienteResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="actualizarClienteRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cedula" type="xs:string"/>
+                <xs:element name="clienteRQ" type="tns:clienteActualizarRQ"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="actualizarClienteResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="buscarClientePorCedulaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cedula" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="buscarClientePorCedulaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="tns:clienteRQ"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    
+    <xs:complexType name="clienteRQ">
+        <xs:sequence>
+            <xs:element name="cedula" type="xs:string"/>
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element name="apellido" type="xs:string"/>
+            <xs:element name="correo" type="xs:string"/>
+            <xs:element name="direccion" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="clienteActualizarRQ">
+        <xs:sequence>
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element name="apellido" type="xs:string"/>
+            <xs:element name="direccion" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
