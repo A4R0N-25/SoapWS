@@ -39,6 +39,7 @@ public class ClienteController {
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "crearClienteRequest")
     @ResponsePayload
     public CrearClienteResponse crearCliente(@RequestPayload CrearClienteRequest request) {
+        log.info("Crear informacion recbida: {}",request.getClienteRQ());
         CrearClienteResponse response = new CrearClienteResponse();
         try {
             ClienteRQ clienteRQ = new ClienteRQ();
@@ -71,6 +72,7 @@ public class ClienteController {
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "actualizarClienteRequest")
     @ResponsePayload
     public ActualizarClienteResponse actualizarCliente(@RequestPayload ActualizarClienteRequest request) {
+        log.info("Actualizar iformacion recbida: {}, {}",request.getCedula(),request.getClienteRQ());
         ActualizarClienteResponse response = new ActualizarClienteResponse();
         try {
             ClienteActualizarRQ actualizarRQ = new ClienteActualizarRQ();
@@ -100,6 +102,7 @@ public class ClienteController {
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "buscarClientePorCedulaRequest")
     @ResponsePayload
     public BuscarClientePorCedulaResponse buscarClientePorCedula(@RequestPayload BuscarClientePorCedulaRequest request) {
+        log.info("Buscar informacion recbida: {}",request.getCedula());
         BuscarClientePorCedulaResponse response = new BuscarClientePorCedulaResponse();
         ClienteRQ cliente = this.clienteService.buscarClientePorCedula(request.getCedula());
         response.setStatus(cliente);
